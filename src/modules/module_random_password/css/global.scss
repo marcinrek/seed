@@ -1,0 +1,54 @@
+/* 
+ * random_password - global css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .random_password {
+    background: $gray-4;
+    padding:    pxToRem(10) pxToRem(20);
+
+    h3,
+    p {
+        margin:  pxToRem(10) 0;
+        padding: 0;
+    }
+
+    input {
+        margin:  pxToRem(10) 0;
+        padding: pxToRem(10);
+        display: block;
+        width:   50%;
+    }
+
+    button {
+        transition: background .5s ease;
+        background: $green;
+        border:     0;
+        padding:    pxToRem(10) pxToRem(20);
+        color:      $white;
+
+        &:hover,
+        &:focus {
+            cursor:     pointer;
+            background: $blue;
+        }
+    }
+
+    &__rank {
+        font-size: pxToRem(12);
+
+        &--strong {
+        color: $green;
+        }
+
+        &--good {
+            color: $blue;
+        }
+
+        &--weak {
+            color: $red;
+        }
+    }
+
+ }  

@@ -1,0 +1,43 @@
+/* 
+* global grid css
+* @version {{version}}
+*/
+.container {
+    width:     $grid-width-percent;
+    margin:    0 auto;
+    max-width: pxToRem($grid-max-width-px);
+}
+
+.grid {
+    display:   flex;
+    flex-wrap: wrap;
+}
+
+.grid--gaps {
+    margin: 0 -$grid-gap-size;
+
+    [class^="col"] {
+        padding: $grid-gap-size;
+    }
+}
+
+.col-100 { flex-basis: 100%; max-width: 100%; }
+.col-95 { flex-basis: 95%; max-width: 95%; }
+.col-90 { flex-basis: 90%; max-width: 90%; }
+.col-85 { flex-basis: 85%; max-width: 85%; }
+.col-80 { flex-basis: 80%; max-width: 80%; }
+.col-75 { flex-basis: 75%; max-width: 75%; }
+.col-70 { flex-basis: 70%; max-width: 70%; }
+.col-65 { flex-basis: 65%; max-width: 65%; }
+.col-60 { flex-basis: 60%; max-width: 60%; }
+.col-55 { flex-basis: 55%; max-width: 55%; }
+.col-50 { flex-basis: 50%; max-width: 50%; }
+.col-45 { flex-basis: 45%; max-width: 45%; }
+.col-40 { flex-basis: 40%; max-width: 40%; }
+.col-35 { flex-basis: 35%; max-width: 35%; }
+.col-33 { flex-basis: 33.333%; max-width: 33.333%; }
+.col-30 { flex-basis: 30%; max-width: 30%; }
+.col-25 { flex-basis: 25%; max-width: 25%; }
+.col-20 { flex-basis: 20%; max-width: 20%; }
+.col-15 { flex-basis: 15%; max-width: 15%; }
+.col-10 { flex-basis: 10%; max-width: 10%; } 

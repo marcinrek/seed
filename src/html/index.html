@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Page title</title>
+        
+        {% include 'global/header.html' %}
+
+        <style>
+            body {
+                margin-bottom: 50px;
+            }
+            h1::after {
+                border-top: 1px solid #dedede;
+                content:    '';
+                display:    block;
+                margin:     15px 0;
+                width:      100%;
+            }
+        </style>
+
+    </head>
+<body>
+
+    <div class="container">
+        <h1>{{projectName}}</h1>
+
+        <!-- Pages -->
+        <h2>Page types</h2>
+        <section>
+            <ul>
+                <li>
+                    <a href="react_app.html">React app</a>
+                    <p>
+                        <code>
+                            gulp serve --routingEntry=/react_app.html
+                        </code>
+                    </p>
+                </li>
+                <li>
+                    <a href="hyperapp_app.html">Hyperapp app</a>
+                    <p>
+                        <code>
+                            gulp serve --useHyperapp --routingEntry=/hyperapp_app.html
+                        </code>
+                    </p>
+                </li>
+                <li>
+                    <a href="random_password.html">Radom password generator (uses &lt;script type="module"&gt;)</a>
+                </li>
+                <li>
+                    <a href="image_example.html">Sample use of images</a>
+                </li>
+            </ul>
+        </section>
+        <!-- /Pages -->
+
+        <h2>Fonts</h2>
+        <pre>$base-font-family: 'Open Sans', sans-serif;</pre>
+        <section class="fonts">
+            <pre>$font-weight-normal: 500;</pre>
+            <div class="normal">A​‌B​‌C​‌Ć​‌Č​‌D​‌Đ​‌E​‌F​‌G​‌H​‌I​‌J​‌K​‌L​‌M​‌N​‌O​‌P​‌Q​‌R​‌S​‌Š​‌T​‌U​‌V​‌W​‌X​‌Y​‌Z​‌Ž​‌a​‌b​‌c​‌č​‌ć​‌d​‌đ​‌e​‌f​‌g​‌h​‌i​‌j​‌k​‌l​‌m​‌n​‌o​‌p​‌q​‌r​‌s​‌š​‌t​‌u​‌v​‌w​‌x​‌y​‌z​‌ž</div>
+            <pre>$font-weight-semibold: 600;</pre>
+            <div class="semibold">A​‌B​‌C​‌Ć​‌Č​‌D​‌Đ​‌E​‌F​‌G​‌H​‌I​‌J​‌K​‌L​‌M​‌N​‌O​‌P​‌Q​‌R​‌S​‌Š​‌T​‌U​‌V​‌W​‌X​‌Y​‌Z​‌Ž​‌a​‌b​‌c​‌č​‌ć​‌d​‌đ​‌e​‌f​‌g​‌h​‌i​‌j​‌k​‌l​‌m​‌n​‌o​‌p​‌q​‌r​‌s​‌š​‌t​‌u​‌v​‌w​‌x​‌y​‌z​‌ž</div>
+            <pre>$font-weight-bold: 700;</pre>
+            <div class="bold">A​‌B​‌C​‌Ć​‌Č​‌D​‌Đ​‌E​‌F​‌G​‌H​‌I​‌J​‌K​‌L​‌M​‌N​‌O​‌P​‌Q​‌R​‌S​‌Š​‌T​‌U​‌V​‌W​‌X​‌Y​‌Z​‌Ž​‌a​‌b​‌c​‌č​‌ć​‌d​‌đ​‌e​‌f​‌g​‌h​‌i​‌j​‌k​‌l​‌m​‌n​‌o​‌p​‌q​‌r​‌s​‌š​‌t​‌u​‌v​‌w​‌x​‌y​‌z​‌ž</div>
+        </section>
+
+        <style>
+            .fonts { 
+                letter-spacing: 4px; 
+                word-break:     break-all; 
+            }
+            .fonts::before,
+            .fonts div::after {
+                border-top: 1px solid #dedede;
+                content:    '';
+                display:    block;
+                margin:     15px 0;
+                width:      50px;
+            }
+            .fonts .normal { font-weight: 500; }
+            .fonts .semibold { font-weight: 600; }
+            .fonts .bold { font-weight: 700; } 
+        </style>
+
+        <!-- Grid -->
+        <h2>Grid</h2>
+        <section>
+            <div class="grid spacer" >
+                <div class="col-100 col-50@md col-25@lg">
+                    <div class="card"><pre>.cardcol-100 col-50@md</pre></div>
+                </div>
+                <div class="col-100 col-50@md col-25@lg">
+                    <div class="card"><pre>col-100 col-50@md</pre></div>
+                </div>
+                <div class="col-50 col-25@lg">
+                    <div class="card"><pre>col-50 col-25@lg</pre></div>
+                </div>
+                <div class="col-50 col-25@lg">
+                    <div class="card"><pre>col-50 col-25@lg</pre></div>
+                </div>
+            </div>
+                
+            <h3>Grid gaps</h3>
+            <div class="grid grid--gaps spacer">
+                <div class="col-33">
+                    <div class="card"><pre>col-33</pre></div>
+                </div>
+                <div class="col-33">
+                    <div class="card"><pre>col-33</pre></div>
+                </div>
+                <div class="col-33">
+                    <div class="card"><pre>col-33</pre></div>
+                </div>
+            </div>
+
+            <div class="grid grid--gaps ">
+                <div class="col-50 col-33@md col-25@lg">
+                    <div class="card"><pre>col-50 col-33@md col-25@lg</pre></div>
+                </div>
+                <div class="col-50 col-33@md col-25@lg">
+                    <div class="card"><pre>col-50 col-33@md col-25@lg</pre></div>
+                </div>
+                <div class="col-50 col-33@md col-25@lg">
+                    <div class="card"><pre>col-50 col-33@md col-25@lg</pre></div>
+                </div>
+                <div class="col-50 col-100@md col-25@lg">
+                    <div class="card"><pre>col-50 col-33@md col-25@lg</pre></div>
+                </div>
+            </div>
+
+            <div class="grid grid--gaps">
+                <div class="col-100 col-50@md col-25@lg">
+                    <div class="card"><pre>col-100 col-50@md</pre></div>
+                </div>
+                <div class="col-100 col-50@md col-25@lg">
+                    <div class="card"><pre>col-100 col-50@md</pre></div>
+                </div>
+                <div class="col-50 col-25@lg">
+                    <div class="card"><pre>col-50 col-25@lg</pre></div>
+                </div>
+                <div class="col-50 col-25@lg">
+                    <div class="card"><pre>col-50 col-25@lg</pre></div>
+                </div>
+            </div>
+
+            <style>
+                .card {
+                    background-color: #f9f9f9;
+                    border:           1px solid #222222;
+                    height:           100%;
+                    padding:          25px;
+                    text-align:       center;
+                }
+            </style>
+
+        </section>
+        <!-- /Grid -->
+
+        <!-- Colors -->
+        <h2>Colors</h2>
+        <section class="colors grid grid--gaps">
+            <h3 class="col-100">Palette</h3>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #5cb85c; color: #ffffff;"><pre>$green: #5cb85c;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #d9534f; color: #ffffff;"><pre>$red: #d9534f;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #5bc0de; color: #ffffff;"><pre>$lightBlue: #5bc0de;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #428bca; color: #ffffff;"><pre>$blue: #428bca;</pre></div>
+            </div>
+        </section>
+        <section class="colors grid grid--gaps">
+            <h3 class="col-100">Grays</h3>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #333333; color: #ffffff;"><pre>$gray-1: #333333;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #666666; color: #ffffff;"><pre>$gray-2: #666666;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #999999; color: #ffffff;"><pre>$gray-3: #999999;</pre></div>
+            </div>
+            <div class="col-100 col-50@md col-25@lg" >
+                <div style="background-color: #cccccc; color: #000000;"><pre>$gray-4: #cccccc;</pre></div>
+            </div>            
+        </section>
+        <style>
+            .colors div div {
+                padding:    50px !important;
+                text-align: center;
+            }
+            code {
+                background: #222222;
+                color:      rgb(177, 241, 171);
+                padding:    10px;
+            }
+            h3::before {
+                content:       "\2022";
+                padding-right: 7px;
+            }
+        </style>
+        <!-- /Colors -->
+
+        <!-- Modules docs -->
+        <h2>Module docs</h2>
+
+        <section id="modules">
+            <ul id="modules-listing"></ul>
+            {% include 'README.html' %}
+        </section>
+
+        <script>
+            var modules = document.querySelectorAll('#modules h3'),
+                list = document.getElementById('modules-listing');
+
+            [].forEach.call(modules, function(h){
+              var id = h.getAttribute('id'),
+                  txt = h.innerHTML.replace(' docs','').replace(/\_/g,' '),
+                  li = document.createElement('li');
+                
+                  li.innerHTML = '<a href="#'+id+'">'+txt+'</a>';
+                  list.appendChild(li);
+            });
+        </script>
+        <!-- /Modules docs -->
+
+    </div>
+
+    </body>
+</html>

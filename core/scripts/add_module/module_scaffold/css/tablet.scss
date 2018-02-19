@@ -1,0 +1,17 @@
+/* 
+ * {{module_name}} - tablet css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .{{module_name}} {
+    background: $white;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  

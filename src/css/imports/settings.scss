@@ -1,0 +1,29 @@
+// Fonts
+$font-weight-normal:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+$base-font-weight: 	   $font-weight-normal;
+$base-font-pixel:      16; 
+$base-letter-spacing:  pxToRem(-0.5);
+$base-font-family:     'Open Sans', sans-serif;
+$base-font-color:      #222222;
+
+// Colors
+$white: #fff;
+$black: #000;
+
+$gray-1:    #333333;
+$gray-2:    #666666;
+$gray-3:    #999999;
+$gray-4:    #cccccc;
+
+$green: 	#5cb85c;
+$red: 		#d9534f;
+$lightBlue: #5bc0de;
+$blue:	 	#428bca;
+
+// Grid
+$grid-gap-size:      pxToRem(8);
+$grid-width-percent: 85%;
+$grid-max-width-px:  1170;

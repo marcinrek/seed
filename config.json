@@ -1,0 +1,150 @@
+{
+    "_comments": {
+        "autoprefixer":            "autoprefixer settings",
+        "browserSyncDebounceTime": "time after browsersync will reload when fired multiple times in ms",
+        "buildDir":                "global output directory",
+        "tempDir":                 "temporary folder",
+        "reservedPaths":           "paths that you can not clean or change dest to",
+        "cssImagePath":            "locations where css images are placed",
+        "cssImageOutputDir":       "where will css images be placed on output",
+        "cssImageOutputDirRegExp": "this will be turned into a regexp that will replace mathing string to cssImageOutputDir value in output css file",
+        "filesPath":               "path to static files",
+        "filesOutputDir":          "static files output dir",
+        "scssWatchPath":           "scss task watch path",
+        "htmlEntryFiles":          "main html files",
+        "htmlWatchPath":           "html task watch path",
+        "htmlMainFile":            "main html file - markdown docs will be appended to this file",
+        "projectMarkdownFile":     "project main markdown file that will get all modules README.md appended and output as ./README.md",
+        "markdownFiles":           "path to markdown README.md module files",
+        "optimise":                "optimise after build? can be overwritten with --optimise",
+        "scssFiles":               "source scss files array - output CSS will be build in the given order as in the array",
+        "scssFiles.files":         "scss entry path",
+        "scssFiles.outputName":    "output file name",
+        "scssFiles.prepend":       "prepend the merged files from current object with given text - may be used for setting media queries",
+        "scssFiles.append":        "same as above but append - close media query for example",
+        "jsPluginsFiles":          "those files will be merged to plugins.js",
+        "jsGlobalFiles":           "those files will be merged to global.js",
+        "jsModulesFiles":          "those files will be copied to /js to be used as script type module",
+        "nunjucksPaths":           "locations where nunjucks will look for files to include",
+        "nunjucksData":            "nunjucks data object",
+        "webpackEntryFiles":       "app entry file - check webpack.config.js && gulp webpack task",
+        "webpackResolveDest":      "where to look for files to import - check webpack.config.js",
+        "routingDebug":            "enable/disable verbose mode for browser-sync historyApiFallback middleware",
+        "routingEntry":            "entry point when using router like react-router-dom, used in browser-sync middleware",
+        "routingRewrites":         "regexp array for rewrites in browser-sync historyApiFallback middleware",
+        "extraBabelPlugins":       "additional babel plugins that are not in .babelrc",
+        "hyperappBabelPlugin":     "used to build proper JSX in hyperapp"
+    },
+    "autoprefixer": {                                                           
+        "browsers": [
+            "last 4 versions"
+        ],
+        "cascade": false
+    },
+    "browserSyncDebounceTime": 1000,
+    "buildDir": "./dist/",
+    "tempDir": "./temp/",
+    "reservedPaths": [
+        "./core/", 
+        "./temp/", 
+        "./node_modules/", 
+        "./src/"
+    ],
+    "cssImagePath": [
+        "./src/css/images/*.*",
+        "./src/modules/**/css/images/*.*"
+    ],
+    "cssImageOutputDir": "mysource_files",
+    "cssImageOutputDirRegExp": "{{file_dest}}",
+    "filesPath": [
+        "./src/files/*.*",
+        "./src/modules/**/files/*.*"
+    ],
+    "filesOutputDir": "mysource_files/",
+    "scssWatchPath": "./src/**/*.scss",
+    "htmlEntryFiles": [
+        "./src/html/*.html"
+    ],
+    "htmlWatchPath": "./src/**/*.html",
+    "htmlMainFile": "./src/html/index.html",
+    "projectMarkdownFile": "./PROJECT.md",
+    "markdownFiles": "./src/modules/**/*.md",
+    "optimise": false,
+    "scssFiles": [
+        {
+            "files": [
+                "node_modules/normalize.css/normalize.css",
+                "src/css/imports/*.scss",
+                "src/css/imports/**/global.*",
+                "src/css/global.scss",
+                "src/modules/**/css/global.scss"
+            ],
+            "outputName": "global"
+        },
+        {
+            "files": [
+                "src/css/imports/**/tablet.*",
+                "src/css/tablet.scss",
+                "src/modules/**/css/tablet.scss"
+            ],
+            "outputName": "tablet",
+            "prepend": "@media only screen and (min-width: 700px) {",
+            "append": "}"
+        },
+        {
+            "files": [
+                "src/css/imports/**/desktop.*",
+                "src/css/desktop.scss",
+                "src/modules/**/css/desktop.scss"
+            ],
+            "outputName": "desktop",
+            "prepend": "@media only screen and (min-width: 1200px) {",
+            "append": "}"
+        },
+        {
+            "files": [
+                "src/css/imports/**/print.*",
+                "src/css/print.scss",
+                "src/modules/**/css/print.scss"
+            ],
+            "outputName": "print",
+            "prepend": "@media print {",
+            "append": "}"
+        }
+    ],
+    "jsPluginsFiles": [
+        "node_modules/jquery/dist/jquery.min.js"
+    ],
+    "jsGlobalFiles": [
+        "src/js/global.js",
+        "src/modules/**/js/global.js"
+    ],
+    "jsModulesFiles": [
+        "src/js/*.mod.js",
+        "src/modules/**/js/*.mod.js"
+    ],
+    "nunjucksPaths": [
+        "src/html/",
+        "src/modules/",
+        "temp/"
+    ],
+    "nunjucksData": {
+        "projectName": "Project name from ./config.json",
+        "file_dest": "mysource_files"
+    },
+    "webpackEntryFiles": ["./src/modules/**/*.app.js"],
+    "webpackResolveDest": "./src/modules/**/js",
+    "routingDebug": false,
+    "routingEntry": "/",
+    "routingRewrites": [
+        "\/details\/lvl1",
+        "\/details\/lvl2"
+    ],
+    "extraBabelPlugins": [],
+    "hyperappBabelPlugin": [
+        "transform-react-jsx",
+        {
+            "pragma": "h"
+        }
+    ]
+}

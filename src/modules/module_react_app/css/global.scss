@@ -1,0 +1,21 @@
+/* 
+ * react_app - global css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .react_app {
+ 	@include    gradient($gray-1, $gray-2);
+    color:      $white;
+    padding:    pxToRem(20);
+
+    a {
+        color:           $white;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+ }  

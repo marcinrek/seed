@@ -1,0 +1,23 @@
+/* 
+ * global css
+ * @version {{version}}
+ */
+
+// apply a natural box layout model to all elements, but allowing components to change
+html {
+    box-sizing: border-box;
+    height:     100%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+// Global settings
+body {
+    color:          $base-font-color;
+    font-family:    $base-font-family;
+    font-size:      $base-font-pixel+px;
+    font-weight:    $base-font-weight;
+    height:         100%;
+    letter-spacing: $base-letter-spacing;
+}

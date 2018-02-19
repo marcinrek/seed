@@ -1,0 +1,18 @@
+/* 
+ * {{module_name}} - desktop css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .{{module_name}} {
+    background: $white;
+    display:    block;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  

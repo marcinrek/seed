@@ -1,0 +1,18 @@
+/* 
+ * {{module_name}} - global css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .{{module_name}} {
+    background: $white;
+    display:    none;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  
