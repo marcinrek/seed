@@ -22,6 +22,10 @@
         "scssFiles.outputName":    "output file name",
         "scssFiles.prepend":       "prepend the merged files from current object with given text - may be used for setting media queries",
         "scssFiles.append":        "same as above but append - close media query for example",
+        "customFiles":             "custom files to be merged and put to dist",
+        "customFiles.files":       "files entry path",
+        "customFiles.outputName":  "output file name",
+        "customFiles.outputDir":   "output directory inside dist",
         "jsPluginsFiles":          "those files will be merged to plugins.js",
         "jsGlobalFiles":           "those files will be merged to global.js",
         "jsModulesFiles":          "those files will be copied to /js to be used as script type module",
@@ -110,6 +114,15 @@
             "outputName": "print",
             "prepend": "@media print {",
             "append": "}"
+        }
+    ],
+    "customMerge": [
+        {
+            "files": [
+
+            ],
+            "outputName": "",
+            "outputDir": ""
         }
     ],
     "jsPluginsFiles": [

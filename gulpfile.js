@@ -74,17 +74,18 @@ const bundler = webpack(webpackConfig);                                         
  */
 
 // Partial tasks
-gulp.task('scss', getTask('scss'));             // build css from scss files
-gulp.task('html', getTask('html'));             // build html files
-gulp.task('images', getTask('images'));         // copy css images
-gulp.task('files', getTask('files'));           // copy other files
-gulp.task('js-global', getTask('js-global'));   // merge js files
-gulp.task('js-plugins', getTask('js-plugins')); // merge js files
-gulp.task('js-modules', getTask('js-modules')); // merge js files
-gulp.task('clean', getTask('clean'));           // clean output dir
-gulp.task('markdown', getTask('markdown'));     // clean output dir
-gulp.task('optimise', getTask('optimise'));     // optimise CSS & JS
-gulp.task('webpack', getTask('webpack'));       // webpack
+gulp.task('scss', getTask('scss'));                 // build css from scss files
+gulp.task('html', getTask('html'));                 // build html files
+gulp.task('images', getTask('images'));             // copy css images
+gulp.task('files', getTask('files'));               // copy other files
+gulp.task('custom-merge', getTask('custom-merge')); // custom files
+gulp.task('js-global', getTask('js-global'));       // merge js files
+gulp.task('js-plugins', getTask('js-plugins'));     // merge js files
+gulp.task('js-modules', getTask('js-modules'));     // merge js files
+gulp.task('clean', getTask('clean'));               // clean output dir
+gulp.task('markdown', getTask('markdown'));         // clean output dir
+gulp.task('optimise', getTask('optimise'));         // optimise CSS & JS
+gulp.task('webpack', getTask('webpack'));           // webpack
 
 // Default task -- show instructions only
 gulp.task('default', function () {
@@ -96,10 +97,10 @@ gulp.task('default', function () {
 });
 
 // Build task
-gulp.task('build', ['scss','js-global','js-plugins','js-modules','html','images','files','markdown','webpack']);
+gulp.task('build', ['scss','custom-merge','js-global','js-plugins','js-modules','html','images','files','markdown','webpack']);
 
 // Serve
-gulp.task('serve', ['scss','js-global','js-plugins','js-modules','html','images','files','markdown'], function() {
+gulp.task('serve', ['scss','custom-merge','js-global','js-plugins','js-modules','html','images','files','markdown'], function() {
 
     // Run browser-sync
     plugins.browserSync({
