@@ -14,6 +14,7 @@ module.exports = (gulp, plugins, config) => {
             } else {
                 console.log(colors.green('No files in custom-merge task.'));
             }
+            
         });
 
     };

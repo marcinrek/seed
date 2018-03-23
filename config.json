@@ -26,6 +26,9 @@
         "customFiles.files":       "files entry path",
         "customFiles.outputName":  "output file name",
         "customFiles.outputDir":   "output directory inside dist",
+        "customCopy":              "custom files to just be copied",
+        "customCopy.files":        "files entry path",
+        "customCopy.outputDir":    "output directory inside dist",
         "jsPluginsFiles":          "those files will be merged to plugins.js",
         "jsGlobalFiles":           "those files will be merged to global.js",
         "jsModulesFiles":          "those files will be copied to /js to be used as script type module",
@@ -122,6 +125,14 @@
 
             ],
             "outputName": "",
+            "outputDir": ""
+        }
+    ],
+    "customCopy": [
+        {
+            "files": [
+
+            ],
             "outputDir": ""
         }
     ],
