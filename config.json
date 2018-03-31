@@ -32,6 +32,8 @@
         "jsPluginsFiles":          "those files will be merged to plugins.js",
         "jsGlobalFiles":           "those files will be merged to global.js",
         "jsModulesFiles":          "those files will be copied to /js to be used as script type module",
+        "jsMochaWatch":            "mocha test will fire when those files change",
+        "jsMochaTests":            "mocha test path",
         "nunjucksPaths":           "locations where nunjucks will look for files to include",
         "nunjucksData":            "nunjucks data object",
         "webpackEntryFiles":       "app entry file - check webpack.config.js && gulp webpack task",
@@ -146,6 +148,12 @@
     "jsModulesFiles": [
         "src/js/*.mod.js",
         "src/modules/**/js/*.mod.js"
+    ],
+    "jsMochaWatch": [
+        "src/**/js/*.js"
+    ],
+    "jsMochaTests": [
+        "src/**/js/*.test.js"  
     ],
     "nunjucksPaths": [
         "src/html/",

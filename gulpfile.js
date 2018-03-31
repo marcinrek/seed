@@ -83,6 +83,7 @@ gulp.task('custom-copy', getTask('custom-copy'));   // custom files copy
 gulp.task('js-global', getTask('js-global'));       // merge js files
 gulp.task('js-plugins', getTask('js-plugins'));     // merge js files
 gulp.task('js-modules', getTask('js-modules'));     // merge js files
+gulp.task('js-test', getTask('js-test'));           // run mocha test
 gulp.task('clean', getTask('clean'));               // clean output dir
 gulp.task('markdown', getTask('markdown'));         // clean output dir
 gulp.task('optimise', getTask('optimise'));         // optimise CSS & JS
@@ -98,10 +99,10 @@ gulp.task('default', function () {
 });
 
 // Build task
-gulp.task('build', ['scss','custom-merge','custom-copy','js-global','js-plugins','js-modules','html','images','files','markdown','webpack']);
+gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'html', 'images', 'files', 'markdown', 'js-test', 'webpack']);
 
 // Serve
-gulp.task('serve', ['scss','custom-merge','custom-copy','js-global','js-plugins','js-modules','html','images','files','markdown'], function() {
+gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'html', 'images', 'files', 'markdown', 'js-test'], function() {
 
     // Run browser-sync
     plugins.browserSync({
@@ -167,6 +168,10 @@ gulp.task('serve', ['scss','custom-merge','custom-copy','js-global','js-plugins'
     // Other files
     watch(config.filesPath, () => {
         gulp.start('files');
-    });   
+    }); 
 
+    // Mocha tests
+    watch(config.jsMochaWatch, () => {
+        gulp.start('js-test');
+    }); 
 });

@@ -1,4 +1,4 @@
-const list = document.getElementById('passwd_list');
+const passwd_list_id = 'passwd_list';
 let passwdArray = [];
 
 // https://stackoverflow.com/questions/948172/password-strength-meter
@@ -72,6 +72,7 @@ const sortByScore = () => {
 }
 
 const printPasswd = () => {
+    const list = document.getElementById(passwd_list_id);
 	list.innerHTML = '';
 
 	passwdArray.map((item) => {
@@ -84,4 +85,8 @@ const printPasswd = () => {
 export const passwordTable = (passwd) => {
 	passwdArrayHandler(passwd);
     printPasswd();
+}
+
+export const scorePasswdFunction = (passwd) => {
+    return scorePasswd(passwd);
 }
