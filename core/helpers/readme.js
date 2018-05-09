@@ -6,7 +6,7 @@ module.exports = () => {
     console.log(colors.green('     /   _____/ ____   ____   __| _/').rainbow);
     console.log(colors.green('     \\_____  \\_/ __ \\_/ __ \\ / __ | ').rainbow);
     console.log(colors.green('     /        \\  ___/\\  ___// /_/ | ').rainbow);
-    console.log(colors.green('    /_v.1.1.0/\\___  >\\___  >____  | ').rainbow);
+    console.log(colors.green('    /_v.1.1.1/\\___  >\\___  >____  | ').rainbow);
     console.log(colors.green('           \\/     \\/     \\/     \\/ ').rainbow);
     console.log('');
     console.log(colors.cyan('All available commands: '));

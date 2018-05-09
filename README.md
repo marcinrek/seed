@@ -29,6 +29,8 @@ Simple cutup boilerplate with support of:
 * Node 8.7.0
 
 ## Changelog
+* v1.1.1 - Update custom-copy and custom-merge tasks - add watchers
+* v1.1.0 - Add mocha test
 * v1.0.0 - Initial commit
 
 # Instalation
@@ -96,9 +98,6 @@ This does make it hard to build react and hyperapp at the same time but this is 
 ### image_example docs
 
 Sample use of images. Made just to point out module folders and where will those files end up in /dist.
-### random_password docs
-Sample app that uses &lt;script type="module"&gt;
-
 ### react_app docs
 Basic react application example module.
 
@@ -106,3 +105,5 @@ This modules uses routing so to run dev server type:
 ```
 gulp serve --routingEntry=/react_app.html
 ```
+### random_password docs
+Sample app that uses &lt;script type="module"&gt;

@@ -3,7 +3,7 @@ const colors = require('colors');
 module.exports = (gulp, plugins, config) => {
     return () => {
 
-    config.customCopy.map(function (item, i) {                                  // loop through configuration array
+        config.customCopy.map(function (item, i) {                              // loop through configuration array
 
             if (item.files.length) {
                 gulp.src(item.files)                                            // copy files on start

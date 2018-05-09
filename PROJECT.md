@@ -29,6 +29,8 @@ Simple cutup boilerplate with support of:
 * Node 8.7.0
 
 ## Changelog
+* v1.1.1 - Update custom-copy and custom-merge tasks - add watchers
+* v1.1.0 - Add mocha test
 * v1.0.0 - Initial commit
 
 # Instalation

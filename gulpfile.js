@@ -173,5 +173,15 @@ gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plug
     // Mocha tests
     watch(config.jsMochaWatch, () => {
         gulp.start('js-test');
-    }); 
+    });
+    
+    // Custom copy
+    watch([].concat.apply([], config.customCopy.map((item) => item.files)), () => {
+        gulp.start('custom-copy');
+    });    
+
+    // Custom merge
+    watch([].concat.apply([], config.customMerge.map((item) => item.files)), () => {
+        gulp.start('custom-merge');
+    });  
 });
