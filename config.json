@@ -36,6 +36,7 @@
         "jsPluginsFiles":          "those files will be merged to plugins.js",
         "jsGlobalFiles":           "those files will be merged to global.js",
         "jsModulesFiles":          "those files will be copied to /js to be used as script type module",
+        "jsBabelGate":             "those files will be babelified and put to dist",
         "jsMochaWatch":            "mocha test will fire when those files change",
         "jsMochaTests":            "mocha test path",
         "nunjucksPaths":           "locations where nunjucks will look for files to include",
@@ -152,6 +153,9 @@
     "jsModulesFiles": [
         "src/js/*.mod.js",
         "src/modules/**/js/*.mod.js"
+    ],
+    "jsBabelGate": [
+        "src/modules/**/js/*.babel.js"
     ],
     "jsMochaWatch": [
         "src/**/js/*.js"
