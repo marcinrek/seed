@@ -17,18 +17,25 @@ Simple cutup boilerplate with support of:
 * npm or yarn as package manager
 
 ## Features/instructions
+Please refer to example modules at the bottom for use cases.
 * Run 'gulp --readme' for more details
 * things like css breakpoints can be configred in config.json - check out comments at top of the file for more details
 * all modules global.js files will be merged to one global.js
 * you can create more then one webpack JS bundle - check config.json and look at webpackEntryFiles - by default all *.app.js files are used as entry files
 * name a JS file *.mod.js and it will be copied to build folder to be used as &lt;script type="module"&gt;
+* automatic markdown documentation concat from each module
   
 ## Testes under
 * Windows 10 with Cygwin installed
-* Ubuntu 
+* Windows 10 with Ubuntu 18.04 subsystem - please note that when you have both Cygwin and Linux Subsystem installed runing "bash" command from the terminal will most likely fire the subsystem. As bash is used in some scripts in Seed you may have to move Cygwin in system paths above "%SystemRoot%\system32". This will cause the bash command to fire the Cygwin bash. You can still fire Ubuntu subsystem by "ubuntu1804.exe" for example.
+* Ubuntu 18.04
 * Node 8.7.0
 
+## Knows bugs
+* You may incounter an issue with markdown task when first running gulp. This should happen only once on the initial run.
+
 ## Changelog
+* v1.2.0 - add more example modules, minor issue fixes, clean up main readme
 * v1.1.1 - Update custom-copy and custom-merge tasks - add watchers
 * v1.1.0 - Add mocha test
 * v1.0.0 - Initial commit

@@ -35,8 +35,11 @@ module.exports = {
     cache: true,
     entry: getEntryPoints(config.webpackEntryFiles),
     output: {
-        filename: "[name].bundle.js",
-        path: relToAbsPath(['./dist/js']).toString()
+        devtoolLineToLine: true,
+        filename: "[name].bundle.js", 
+        sourceMapFilename: "[name].bundle.js.map",
+        path: relToAbsPath([config.buildDir+'js']).toString(),
+        pathinfo: true
     },
     devtool: 'source-map',
 

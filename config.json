@@ -2,7 +2,7 @@
     "_comments": {
         "autoprefixer":            "autoprefixer settings",
         "browserSyncDebounceTime": "time after browsersync will reload when fired multiple times in ms",
-        "buildDir":                "global output directory",
+        "buildDir":                "global output directory - this is also used in browsersync and webpack so think twice before changing",
         "tempDir":                 "temporary folder",
         "reservedPaths":           "paths that you can not clean or change dest to",
         "cssImagePath":            "locations where css images are placed",

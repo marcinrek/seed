@@ -100,10 +100,10 @@ gulp.task('default', function () {
 });
 
 // Build task
-gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'html', 'images', 'files', 'markdown', 'js-test', 'webpack']);
+gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test', 'webpack']);
 
 // Serve
-gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'html', 'images', 'files', 'markdown', 'js-test'], function() {
+gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'], function() {
 
     // Run browser-sync
     plugins.browserSync({
@@ -116,7 +116,7 @@ gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plug
                     verbose: config.routingDebug
                 }),
                 webpackDevMiddleware(bundler, {
-                    path: './dist/js',
+                    path: config.buildDir+'js',
                     publicPath: '/js',
                     stats: { colors: true }
                 }),
