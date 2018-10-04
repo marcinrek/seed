@@ -4,7 +4,7 @@ module.exports = (gulp, plugins, config) => {
         // Build HTML docs
         gulp.src(config.markdownFiles)                                  // get all markdown files
             .pipe(plugins.plumber())                                    // run plumber to handle errors
-            .pipe(plugins.concat('README.md'))                          // ... concat them
+            .pipe(plugins.concat('README.html'))                        // ... concat them
             .pipe(plugins.markdown())                                   // transform to HTML
             .pipe(gulp.dest(config.tempDir))                            // ... write to temp
             .on('end', function(){                                      // after this is done:

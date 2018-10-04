@@ -29,12 +29,14 @@ Please refer to example modules at the bottom for use cases.
 * Windows 10 with Cygwin installed
 * Windows 10 with Ubuntu 18.04 subsystem - please note that when you have both Cygwin and Linux Subsystem installed runing "bash" command from the terminal will most likely fire the subsystem. As bash is used in some scripts in Seed you may have to move Cygwin in system paths above "%SystemRoot%\system32". This will cause the bash command to fire the Cygwin bash. You can still fire Ubuntu subsystem by "ubuntu1804.exe" for example.
 * Ubuntu 18.04
-* Node 8.7.0
+* Node 8.12.0
+* Npm 6.4.1
 
 ## Knows bugs
 * You may incounter an issue with markdown task when first running gulp. This should happen only once on the initial run.
 
 ## Changelog
+* v1.2.1 - improved support for current LTS Node version 8.12.0, updated gulp-markdown to ver 3.0.0, improved html task by adding base path
 * v1.2.0 - add more example modules, minor issue fixes, clean up main readme
 * v1.1.1 - Update custom-copy and custom-merge tasks - add watchers
 * v1.1.0 - Add mocha test
@@ -102,6 +104,18 @@ The key use of this is when you just want to have one specific file in your proj
 
 ---
 
+### global docs
+
+Javascript files with name **global.js** are concatinated to one global.js file and babelified on output.
+
+---
+
+### image_example docs
+
+Sample use of images. Made just to point out module folders and where will those files end up in /dist.
+
+---
+
 ### hyperapp_app docs
 Sample hyperapp example.
 This module requires adding a plugin to .babelrc
@@ -121,12 +135,6 @@ for example:
 gulp serve --useHyperapp --routingEntry=/hyperapp_app.html
 ```
 This does make it hard to build react and hyperapp at the same time but this is an unlikely scenario. Still possible to do "manually" by changing the gulp parameters during development.
-
----
-
-### global docs
-
-Javascript files with name **global.js** are concatinated to one global.js file and babelified on output.
 
 ---
 
@@ -152,12 +160,6 @@ import random_password from 'random_password.mod';
 
 ---
 
-
-### image_example docs
-
-Sample use of images. Made just to point out module folders and where will those files end up in /dist.
-
----
 
 ### react_app docs
 Basic react application example module.

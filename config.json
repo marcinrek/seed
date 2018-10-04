@@ -12,6 +12,7 @@
         "filesOutputDir":          "static files output dir",
         "scssWatchPath":           "scss task watch path",
         "htmlEntryFiles":          "main html files",
+        "htmlEntryFilesBase":      "relative folder of html files - usefull when you want to keep html files in folders",
         "htmlWatchPath":           "html task watch path",
         "htmlMainFile":            "main html file - markdown docs will be appended to this file",
         "projectMarkdownFile":     "project main markdown file that will get all modules README.md appended and output as ./README.md",
@@ -77,8 +78,10 @@
     "filesOutputDir": "mysource_files/",
     "scssWatchPath": "./src/**/*.scss",
     "htmlEntryFiles": [
-        "./src/html/*.html"
+        "./src/html/**/*.html",
+        "!./src/html/global/*.html"
     ],
+    "htmlEntryFilesBase": "./src/html/",
     "htmlWatchPath": "./src/**/*.html",
     "htmlMainFile": "./src/html/index.html",
     "projectMarkdownFile": "./PROJECT.md",
