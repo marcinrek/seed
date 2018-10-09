@@ -32,8 +32,9 @@ Please refer to example modules at the bottom for use cases.
 * Node 8.12.0
 * Npm 6.4.1
 
-## Knows bugs
+## Knows bugs and issues
 * You may incounter an issue with markdown task when first running gulp. This should happen only once on the initial run.
+* To run under Node 10.X you have to remove node_modules and package-lock.json - then run npm install again.
 
 ## Changelog
 * v1.2.1 - improved support for current LTS Node version 8.12.0, updated gulp-markdown to ver 3.0.0, improved html task by adding base path
@@ -110,12 +111,6 @@ Javascript files with name **global.js** are concatinated to one global.js file 
 
 ---
 
-### image_example docs
-
-Sample use of images. Made just to point out module folders and where will those files end up in /dist.
-
----
-
 ### hyperapp_app docs
 Sample hyperapp example.
 This module requires adding a plugin to .babelrc
@@ -135,6 +130,12 @@ for example:
 gulp serve --useHyperapp --routingEntry=/hyperapp_app.html
 ```
 This does make it hard to build react and hyperapp at the same time but this is an unlikely scenario. Still possible to do "manually" by changing the gulp parameters during development.
+
+---
+
+### image_example docs
+
+Sample use of images. Made just to point out module folders and where will those files end up in /dist.
 
 ---
 

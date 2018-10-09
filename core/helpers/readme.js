@@ -6,7 +6,7 @@ module.exports = () => {
     console.log(colors.green('     /   _____/ ____   ____   __| _/').rainbow);
     console.log(colors.green('     \\_____  \\_/ __ \\_/ __ \\ / __ | ').rainbow);
     console.log(colors.green('     /        \\  ___/\\  ___// /_/ | ').rainbow);
-    console.log(colors.green('    /_v.1.2.1/\\___  >\\___  >____  | ').rainbow);
+    console.log(colors.green('    /_v.1.2.2/\\___  >\\___  >____  | ').rainbow);
     console.log(colors.green('           \\/     \\/     \\/     \\/ ').rainbow);
     console.log('');
     console.log(colors.cyan('All available commands: '));
@@ -27,6 +27,7 @@ module.exports = () => {
     console.log(colors.white('-'),colors.yellow('npm run hook-pre-commit'),colors.white('<- create pre-commit hook based on eslint'));
     console.log(colors.white('-'),colors.yellow('npm run lint'),colors.white('<- lints all .js files from src/ folder'));
     console.log(colors.white('-'),colors.yellow('npm run test'),colors.white('<- run mocha tests'));
+    console.log(colors.white('-'),colors.yellow('npm run pup'),colors.white('<- run puppeteer tests'));
     console.log('')
     console.log(colors.cyan('Module structure: '));
     console.log(colors.yellow('| module_{{module_name}} [folder]'), '<- main module folder');
@@ -44,6 +45,8 @@ module.exports = () => {
     console.log(colors.green('   |- {{module_name}}.js'), '<- module js file');
     console.log(colors.green('   |- {{module_name}}.mod.js'), '<- *.mod.js will be copied to /js');
     console.log(colors.green('   |- {{module_name}}.sub.mod.js'), '<- *.mod.js will be copied to /js');
+    console.log(colors.green('   |- {{module_name}}.test.js'), '<- *.test.js - mocha test file');
+    console.log(colors.green('   |- {{module_name}}.pup.js'), '<- *.pup.js - puppeteer test file');
     console.log(colors.green('|- README.md'), '<- used for module documentation, will be merged to global README.md and HTML entry file');
     console.log(colors.green('|- {{module_name}}.html'), '<- main module html file');
 }

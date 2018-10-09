@@ -60,12 +60,21 @@ if [ ! -d "$modulePath" ]; then
   mv  $modulePath/js/module.sub.mod.js $modulePath/js/$moduleNameTrimed.sub.mod.js
   echo -e "${GREEN}OK!${NC}"
 
+  echo -n "|  |- Renaming mocha test file from module.test.js to $moduleNameTrimed.test.js: "
+  mv  $modulePath/js/module.test.js $modulePath/js/$moduleNameTrimed.test.js
+  echo -e "${GREEN}OK!${NC}"
+
+  echo -n "|  |- Renaming puppeteer test file from module.pup.js to $moduleNameTrimed.pup.js: "
+  mv  $modulePath/js/module.pup.js $modulePath/js/$moduleNameTrimed.pup.js
+  echo -e "${GREEN}OK!${NC}"
+
   echo -e "|  |- Replace ${GREEN}{{module_name}}${NC} to real module name ${GREEN}$moduleNameTrimed${NC} in:"
   echo -e "|   \- Working on: ${GREEN}$modulePath/js/*.js${NC}"
   sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/js/global.js
   sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/js/$moduleNameTrimed.js
   sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/js/$moduleNameTrimed.mod.js
   sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/js/$moduleNameTrimed.sub.mod.js
+  sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/js/$moduleNameTrimed.pup.js
 
   echo -e "|   |- Working on: ${GREEN}$modulePath/css/*.scss${NC}"
   sedi "s/{{module_name}}/$moduleNameTrimed/g" $modulePath/css/desktop.scss

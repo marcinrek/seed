@@ -48,7 +48,8 @@
         "routingEntry":            "entry point when using router like react-router-dom, used in browser-sync middleware",
         "routingRewrites":         "regexp array for rewrites in browser-sync historyApiFallback middleware",
         "extraBabelPlugins":       "additional babel plugins that are not in .babelrc",
-        "hyperappBabelPlugin":     "used to build proper JSX in hyperapp"
+        "hyperappBabelPlugin":     "used to build proper JSX in hyperapp",
+        "puppeteer":               "puppeteer configuration - https://github.com/GoogleChrome/puppeteer"
     },
     "autoprefixer": {                                                           
         "browsers": [
@@ -161,7 +162,8 @@
         "src/modules/**/js/*.babel.js"
     ],
     "jsMochaWatch": [
-        "src/**/js/*.js"
+        "src/**/js/*.js",
+        "!src/**/js/*.pup.js"
     ],
     "jsMochaTests": [
         "src/**/js/*.test.js"  
@@ -189,5 +191,21 @@
         {
             "pragma": "h"
         }
-    ]
+    ],
+    "puppeteer": {
+        "browser": {
+            "headless": true,
+            "devtool": false,
+            "slowMo": 100,
+            "ignoreHTTPSErrors": true,
+            "args": ["--no-sandbox"]
+        },
+        "screenshotsDir": "./temp/",
+        "screenshots": true,
+        "viewport": {
+            "width": 1330,
+            "height": 768
+        },
+        "timeout": 15000
+    }
 }
