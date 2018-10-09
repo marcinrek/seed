@@ -15,6 +15,7 @@ Simple cutup boilerplate with support of:
 * browsersync with webpack-dev-server and connect-history-api-fallback running as middleware for a development server
 * eslint for JS linting
 * npm or yarn as package manager
+* mocha and puppeteer for testing
 
 ## Features/instructions
 Please refer to example modules at the bottom for use cases.

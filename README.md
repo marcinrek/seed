@@ -15,6 +15,7 @@ Simple cutup boilerplate with support of:
 * browsersync with webpack-dev-server and connect-history-api-fallback running as middleware for a development server
 * eslint for JS linting
 * npm or yarn as package manager
+* mocha and puppeteer for testing
 
 ## Features/instructions
 Please refer to example modules at the bottom for use cases.
@@ -37,11 +38,17 @@ Please refer to example modules at the bottom for use cases.
 * To run under Node 10.X you have to remove node_modules and package-lock.json - then run npm install again.
 
 ## Changelog
+* v1.2.2 - added puppeteer
 * v1.2.1 - improved support for current LTS Node version 8.12.0, updated gulp-markdown to ver 3.0.0, improved html task by adding base path
 * v1.2.0 - add more example modules, minor issue fixes, clean up main readme
 * v1.1.1 - Update custom-copy and custom-merge tasks - add watchers
 * v1.1.0 - Add mocha test
 * v1.0.0 - Initial commit
+
+## Next release plans
+* change example modules to be more representative 
+* add example module for current version of React + Redux
+* improve add-module to have option picker
 
 # Instalation
 * npm install
@@ -67,6 +74,12 @@ npm run hook-pre-commit <- create pre-commit hook based on eslint
 ```
 ```
 npm run lint <- lints all .js files from src/ folder
+```
+```
+npm run test <- run mocha tests
+```
+```
+npm run pup <- run puppeteer tests
 ```
 
 ### Gulp Modifiers
