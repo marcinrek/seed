@@ -47,9 +47,10 @@ Please refer to example modules at the bottom for use cases.
 * v1.0.0 - Initial commit
 
 ## Next release plans
-* change example modules to be more representative 
-* add example module for current version of React + Redux
-* improve add-module to have option picker
+* replace mocha with Jest
+* clear CSS scaffold
+* refactor add-module scaffold
+* simplify index.html
 
 # Instalation
 * npm install
