@@ -1,19 +1,16 @@
 /*
 *   Simple Plate V2
 *   Author: info@marcinrek.pl
-*   Version: 1.0.0
+*   Version: 1.3.0
 *   
 *
 */
 
 // Init
 const gulp = require('gulp'),                                                   // Gulp ...
+    glob = require('glob'),                                                     // glob
     argv = require('yargs').argv,                                               // read arguments
-    readme = require('./core/helpers/readme.js'),                               // get readme
-    changeDest = require('./core/helpers/changeDest.js'),                       // change dist folder from config.json
-    changeRoutingEntry = require('./core/helpers/changeRoutingEntry.js'),       // change routingEntry from config.json
-    buildRoutingRewrites = require('./core/helpers/buildRoutingRewrites.js'),   // Build routingRewrites
-    useHyperapp = require('./core/helpers/useHyperapp.js'),                     // Use ["transform-react-jsx",{"pragma": "h"}] for hyperapp
+    helpers = require('./core/gulp-tasks/_helpers.js'),  
     watch = require('gulp-watch'),                                              // gulp.watch replacement
     fs = require('fs'),                                                         // File system access
     webpack = require('webpack'),                                               // webpack used in build
@@ -48,26 +45,35 @@ const getTask = (task) => {
 let showReadme = argv.readme ? true : false;
 
 // Change dest from ./dist/ to --dist argument
-changeDest(argv.dest, config);
+helpers.changeDest(argv.dest, config);
 
 // Change routingEntry from / to --routingEntry argument
-changeRoutingEntry(argv.routingEntry, config);
+helpers.changeRoutingEntry(argv.routingEntry, config);
 
 // Build routingRewrites
-buildRoutingRewrites(argv.routingEntry, config);
+helpers.buildRoutingRewrites(argv.routingEntry, config);
 
 // Use ["transform-react-jsx",{"pragma": "h"}] for hyperapp
-useHyperapp(argv.useHyperapp, config);
+helpers.useHyperapp(argv.useHyperapp, config);
 
 // Optimise after build 
 if (argv.optimise) {
     config.optimise = true;
 }
 
-// Setup webpack config
+/**
+ *  Setup webpack
+ */
+let withWebpack = false;                                                        // set flag
+let browserSyncMiddleware = [];                                                 // placeholder for browser sync middleware
+let bundler;                                                                    // placeholder for webpack bundler
 let webpackConfig = require('./webpack.config.js');                             // read webpack configuration file
 webpackConfig.module.rules[0].use.options.plugins = config.extraBabelPlugins;   // add any additional babel plugins
-const bundler = webpack(webpackConfig);                                         // used in webpack-dev-server middleware for browser-sync
+
+if (helpers.checkGlobFileExists(config.webpackEntryFiles)) {                    // Check should webpack be used
+    withWebpack = true;                                                         // if so set flag
+    bundler = webpack(webpackConfig);                                           // create webpack instance                            
+}
 
 /*
  *  Tasks
@@ -91,45 +97,60 @@ gulp.task('optimise', getTask('optimise'));         // optimise CSS & JS
 gulp.task('webpack', getTask('webpack'));           // webpack
 
 // Default task -- show instructions only
-gulp.task('default', function () {
+gulp.task('default', ()=>{
     if (showReadme) {
-        readme();
+        helpers.readme();
     } else {
         gulp.start('build');
     }
 });
 
 // Build task
-gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test', 'webpack']);
+gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'],()=>{
+    if (withWebpack) {
+        gulp.start('webpack');
+    } else if (config.optimise && !withWebpack) {
+        gulp.start('optimise');
+    }
+});
 
 // Serve
-gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'], function() {
+gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'], ()=>{
 
     // Run browser-sync
+    if (withWebpack) {
+        
+        // used in webpack-dev-server middleware for browser-sync   
+        browserSyncMiddleware = [
+            historyApiFallback({
+                index: config.routingEntry,
+                rewrites: config.routingRewrites,
+                verbose: config.routingDebug
+            }),
+            webpackDevMiddleware(bundler, {
+                path: config.buildDir + 'js',
+                publicPath: '/js',
+                stats: { colors: true }
+            }),
+            webpackHotMiddleware(bundler)
+        ] 
+    }
+    
+    // Fire browserSync
     plugins.browserSync({
         server: {
             baseDir: config.buildDir,
-            middleware: [
-                historyApiFallback({
-                    index: config.routingEntry,
-                    rewrites: config.routingRewrites,
-                    verbose: config.routingDebug
-                }),
-                webpackDevMiddleware(bundler, {
-                    path: config.buildDir+'js',
-                    publicPath: '/js',
-                    stats: { colors: true }
-                }),
-                webpackHotMiddleware(bundler)
-            ]
+            middleware: browserSyncMiddleware
         },
         reloadDebounce: config.browserSyncDebounceTime
     });
 
     // On webpack done reload browserSync
-    bundler.plugin('done', () => {
-        plugins.browserSync.reload();
-    });
+    if (withWebpack) {
+        bundler.plugin('done', () => {
+            plugins.browserSync.reload();
+        });
+    }
 
     // Build CSS from Scss
     watch(config.scssWatchPath, () => {

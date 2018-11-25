@@ -3,7 +3,11 @@ const path = require("path"),
       fs = require('fs'),
       config = JSON.parse(fs.readFileSync('./config.json'));
 
-// Transform relative path to absolute path
+/**
+ * @description Transform relative path to absolute path
+ * @param {array} rel Relative path array
+ * @returns {array} Absolute path array
+ */
 const relToAbsPath = (rel) => {
     let abs = rel.map((item) => {
         return path.resolve(item);
@@ -12,7 +16,11 @@ const relToAbsPath = (rel) => {
     return abs;
 }
 
-// Generate list of app entry points
+/**
+ * @description Generate list of app entry points
+ * @param {array} appPath Array og glob used for creating entry points
+ * @returns {object} Entries list object
+ */
 const getEntryPoints = (appPath) => {
     let entries = {},
         path = appPath;
@@ -29,8 +37,9 @@ const getEntryPoints = (appPath) => {
     return entries;
 }
 
-console.log(config.extraBabelPlugins);
-
+/**
+ * Export config
+ */
 module.exports = {
     cache: true,
     entry: getEntryPoints(config.webpackEntryFiles),

@@ -38,6 +38,7 @@ Please refer to example modules at the bottom for use cases.
 * To run under Node 10.X you have to remove node_modules and package-lock.json - then run npm install again.
 
 ## Changelog
+* v1.3.0 - make puppeteer optional, fixes to work without webpack and tests, updated add-module script, refactor gulpfile.js, remove example modules
 * v1.2.2 - added puppeteer
 * v1.2.1 - improved support for current LTS Node version 8.12.0, updated gulp-markdown to ver 3.0.0, improved html task by adding base path
 * v1.2.0 - add more example modules, minor issue fixes, clean up main readme

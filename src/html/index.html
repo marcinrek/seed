@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Page title</title>
         
-        {% include 'global/header.html' %}
+        {% include 'global/header.html' ignore missing %}
 
         <style>
             body {
@@ -29,28 +29,7 @@
         <h2>Page types</h2>
         <section>
             <ul>
-                <li>
-                    <a href="react_app.html">React app</a>
-                    <p>
-                        <code>
-                            gulp serve --routingEntry=/react_app.html
-                        </code>
-                    </p>
-                </li>
-                <li>
-                    <a href="hyperapp_app.html">Hyperapp app</a>
-                    <p>
-                        <code>
-                            gulp serve --useHyperapp --routingEntry=/hyperapp_app.html
-                        </code>
-                    </p>
-                </li>
-                <li>
-                    <a href="random_password.html">Radom password generator (uses &lt;script type="module"&gt;)</a>
-                </li>
-                <li>
-                    <a href="image_example.html">Sample use of images</a>
-                </li>
+                
             </ul>
         </section>
         <!-- /Pages -->
@@ -213,7 +192,7 @@
 
         <section id="modules">
             <ul id="modules-listing"></ul>
-            {% include 'README.html' %}
+            {% include 'README.html' ignore missing %}
         </section>
 
         <script>

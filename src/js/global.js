@@ -13,6 +13,7 @@
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
 // https://davidwalsh.name/javascript-debounce-function
+/*
 function debounce(func, wait, immediate) {
     var timeout;
     return function() {
@@ -34,7 +35,7 @@ function debounce(func, wait, immediate) {
         }
     };
 };
-
+*/
 // Example usage
 // var myEfficientFn = debounce(function() {
 //     // All the taxing stuff you do

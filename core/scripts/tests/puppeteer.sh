@@ -6,6 +6,18 @@ LRED='\033[1;31m'
 GREEN='\033[0;32m'
 LGREEN='\033[1;32m'
 NC='\033[0m' # No Color
+PUPPETEER_DIRECTORY='./node_modules/puppeteer'
+
+# Check is puppeteer installed
+if [ ! -d "$PUPPETEER_DIRECTORY" ]; then
+    echo -e "Puppeteer installed ${RED}[NO]${NC}"
+    echo -e "Puppeter is not installed!";
+    echo -e "Type ${GREEN}npm install -sD puppeteer${NC} to install.";
+    echo -e "Tested with Puppeteer version ${GREEN}1.10.0${NC}";
+    exit;
+else
+    echo -e "Puppeteer installed ${GREEN}[OK]${NC}"
+fi
 
 # Look for module test files
 HAS_MODULE="$(ls src/modules/*/js/*.pup.js)";

@@ -8,12 +8,11 @@ const component = 'Generic test';
 const url = 'http://localhost:3000';
 
 try {
-    (async () => {
+    (async ()=>{
         
         // Browser settings test
         const browser = await puppeteer.launch(config.browser);
         const page = await browser.newPage();
-        const testName = 'settings';
 
         // Test viewport
         await page.setViewport(config.viewport).then(() => {
