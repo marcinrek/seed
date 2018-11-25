@@ -13,7 +13,6 @@ try {
         // Browser settings test
         const browser = await puppeteer.launch(config.browser);
         const page = await browser.newPage();
-        const testName = 'settings';
 
         /*
          *  TEST PLACEHOLDER
