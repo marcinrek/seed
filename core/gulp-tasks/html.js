@@ -8,7 +8,8 @@ module.exports = (gulp, plugins, config) => {
             .pipe(plugins.plumber())                                        // run plumber to handle errors
             .pipe(plugins.nunjucksRender({                                  // render using nunjucks
                 path: config.nunjucksPaths,                                 // set nunjucks paths
-                data: config.nunjucksData                                   // set nunjucks data OBJ
+                data: config.nunjucksData,                                  // set nunjucks data OBJ
+                envOptions: config.nunjucksEnvOptions                       // custom settings
             }))           
             .pipe(gulp.dest(config.buildDir))                               // write to output
             .on('end', plugins.browserSync.reload);                         // reload browsersync on end

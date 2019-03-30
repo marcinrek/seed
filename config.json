@@ -42,6 +42,7 @@
         "jsMochaTests":            "mocha test path",
         "nunjucksPaths":           "locations where nunjucks will look for files to include",
         "nunjucksData":            "nunjucks data object",
+        "nunjucksEnvOptions":      "custom settings for nunjucks",
         "webpackEntryFiles":       "app entry file - check webpack.config.js && gulp webpack task",
         "webpackResolveDest":      "where to look for files to import - check webpack.config.js",
         "routingDebug":            "enable/disable verbose mode for browser-sync historyApiFallback middleware",
@@ -176,6 +177,16 @@
     "nunjucksData": {
         "projectName": "Project name from ./config.json",
         "file_dest": "mysource_files"
+    },
+    "nunjucksEnvOptions": {
+        "tags": {
+            "blockStart": "{%",
+            "blockEnd": "%}",
+            "variableStart": "{$",
+            "variableEnd": "$}",
+            "commentStart": "{#",
+            "commentEnd": "#}"
+        }
     },
     "webpackEntryFiles": ["./src/modules/**/*.app.js"],
     "webpackResolveDest": "./src/modules/**/js",

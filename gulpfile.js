@@ -8,7 +8,6 @@
 
 // Init
 const gulp = require('gulp'),                                                   // Gulp ...
-    glob = require('glob'),                                                     // glob
     argv = require('yargs').argv,                                               // read arguments
     helpers = require('./core/gulp-tasks/_helpers.js'),  
     watch = require('gulp-watch'),                                              // gulp.watch replacement
