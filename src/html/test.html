@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Page title</title>
+        
+        {% include 'global/header.html' ignore missing %}
+
+        <style>
+            body {
+                margin-bottom: 50px;
+            }
+            h1::after {
+                border-top: 1px solid #dedede;
+                content:    '';
+                display:    block;
+                margin:     15px 0;
+                width:      100%;
+            }
+        </style>
+
+    </head>
+<body>
+
+<span class="test"><!-- --></span>
+
+{% include 'global/footer.html' ignore missing %}
+</body>
+</html>

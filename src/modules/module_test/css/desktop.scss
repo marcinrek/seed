@@ -1,0 +1,18 @@
+/* 
+ * test - desktop css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .test {
+    background: $white;
+    display:    block;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  

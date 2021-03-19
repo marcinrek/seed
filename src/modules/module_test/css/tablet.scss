@@ -1,0 +1,17 @@
+/* 
+ * test - tablet css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .test {
+    background: $white;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  

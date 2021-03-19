@@ -1,0 +1,18 @@
+/* 
+ * test - global css
+ * @author {{author}}
+ * @version {{version}}
+ */
+
+ .test {
+    background: $white;
+    display:    none;
+
+    &__selector {
+        color: $black;
+
+        &--modifier {
+            color: $white;
+        }
+    }
+ }  

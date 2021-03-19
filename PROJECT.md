@@ -101,3 +101,8 @@ npm run pup <- run puppeteer tests
 ```
 
 ## Module docs below
+
+## Donate 
+If you found this piece of code useful in anyway please consider a donation :)
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=ZPSPDRNU99V4Y)

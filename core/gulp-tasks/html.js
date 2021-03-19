@@ -10,6 +10,11 @@ module.exports = (gulp, plugins, config) => {
                 path: config.nunjucksPaths,                                 // set nunjucks paths
                 data: config.nunjucksData,                                  // set nunjucks data OBJ
                 envOptions: config.nunjucksEnvOptions                       // custom settings
+            }))
+            .pipe(plugins.prettyHtml({                                      // beautify
+                indent_size: 2,
+                preserve_newlines: true,
+                max_preserve_newlines: 1
             }))           
             .pipe(gulp.dest(config.buildDir))                               // write to output
             .on('end', plugins.browserSync.reload);                         // reload browsersync on end
