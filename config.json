@@ -8,6 +8,9 @@
         "cssImagePath":            "locations where css images are placed",
         "cssImageOutputDir":       "where will css images be placed on output",
         "cssImageOutputDirRegExp": "this will be turned into a regexp that will replace mathing string to cssImageOutputDir value in output css file",
+        "imagePath":               "images folder path",
+        "imagePathOutputDir":      "image files output dir",
+        "imageResizeConfig":       "config for image variaties - https://github.com/scalableminds/gulp-image-resize",
         "filesPath":               "path to static files",
         "filesOutputDir":          "static files output dir",
         "scssWatchPath":           "scss task watch path",
@@ -71,13 +74,42 @@
         "./src/css/images/*.*",
         "./src/modules/**/css/images/*.*"
     ],
-    "cssImageOutputDir": "mysource_files",
+    "cssImageOutputDir": "files",
     "cssImageOutputDirRegExp": "{{file_dest}}",
+    "imagePath": [
+        "./src/images/*.{png,gif,jpg}",
+        "./src/modules/**/images/*.{png,gif,jpg}"
+    ],
+    "imagePathOutputDir": "images/",
+    "imageResizeConfig": [
+        {
+            "variaty": "",
+            "settings": {
+                "width" : "100%"
+            }
+        },
+        {
+            "variaty": "-thumbnail",
+            "settings": {
+                "width" : 640,
+                "crop" : false,
+                "upscale" : false
+            }
+        },
+        {
+            "variaty": "-small",
+            "settings": {
+                "width" : 320,
+                "crop" : false,
+                "upscale" : false
+            }
+        }
+    ],
     "filesPath": [
         "./src/files/*.*",
         "./src/modules/**/files/*.*"
     ],
-    "filesOutputDir": "mysource_files/",
+    "filesOutputDir": "files/",
     "scssWatchPath": "./src/**/*.scss",
     "htmlEntryFiles": [
         "./src/html/**/*.html",
@@ -176,7 +208,7 @@
     ],
     "nunjucksData": {
         "projectName": "Project name from ./config.json",
-        "file_dest": "mysource_files"
+        "file_dest": "files"
     },
     "nunjucksEnvOptions": {
         "tags": {

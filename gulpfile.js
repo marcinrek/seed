@@ -81,6 +81,7 @@ if (helpers.checkGlobFileExists(config.webpackEntryFiles)) {                    
 // Partial tasks
 gulp.task('scss', getTask('scss'));                 // build css from scss files
 gulp.task('html', getTask('html'));                 // build html files
+gulp.task('imageFolder', getTask('imageFolder'));   // build html files
 gulp.task('images', getTask('images'));             // copy css images
 gulp.task('files', getTask('files'));               // copy other files
 gulp.task('custom-merge', getTask('custom-merge')); // custom files merge
@@ -105,7 +106,7 @@ gulp.task('default', ()=>{
 });
 
 // Build task
-gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'],()=>{
+gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'imageFolder', 'files', 'markdown', 'html', 'js-test'],()=>{
     if (withWebpack) {
         gulp.start('webpack');
     } else if (config.optimise && !withWebpack) {
@@ -114,7 +115,7 @@ gulp.task('build', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plug
 });
 
 // Serve
-gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'files', 'markdown', 'html', 'js-test'], ()=>{
+gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plugins', 'js-modules', 'js-babel', 'images', 'imageFolder', 'files', 'markdown', 'html', 'js-test'], ()=>{
 
     // Run browser-sync
     if (withWebpack) {
@@ -184,6 +185,11 @@ gulp.task('serve', ['scss', 'custom-merge', 'custom-copy', 'js-global', 'js-plug
     // CSS images
     watch(config.cssImagePath, () => {
         gulp.start('images');
+    });
+
+    // Images folder
+    watch(config.imagePath, () => {
+        gulp.start('imageFolder');
     });
  
     // Markdown docs
