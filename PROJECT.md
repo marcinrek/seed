@@ -39,6 +39,7 @@ Please refer to example modules at the bottom for use cases.
 * since version 1.3.3 you need to install ImageMagic and/or GraphicsMagic to support making image variaties from image/ folder. Instructions can be found on https://github.com/scalableminds/gulp-image-resize. For Windows 10 you need to install both packages and restart Windows for it to work properly.
 
 ## Changelog
+* v1.3.4 - add images minification
 * v1.3.3 - add images/ folder for creating image variaties, add htmltidy for html files
 * v1.3.2 - fix Node 10 issues by adding natives module, add custom nunjucks tags to config.json to enable double curly brackets in templates 
 * v1.3.1 - remove puppeteer from dependencies
