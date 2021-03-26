@@ -126,7 +126,7 @@ exports.readme = () => {
     console.log(colors.green('     /   _____/ ____   ____   __| _/').rainbow);
     console.log(colors.green('     \\_____  \\_/ __ \\_/ __ \\ / __ | ').rainbow);
     console.log(colors.green('     /        \\  ___/\\  ___// /_/ | ').rainbow);
-    console.log(colors.green('    /_v.1.3.2/\\___  >\\___  >____  | ').rainbow);
+    console.log(colors.green('    /_v.1.3.4/\\___  >\\___  >____  | ').rainbow);
     console.log(colors.green('           \\/     \\/     \\/     \\/ ').rainbow);
     console.log('');
     console.log(colors.cyan('All available commands: '));
@@ -158,6 +158,7 @@ exports.readme = () => {
     console.log(colors.green('   |- print.scss'), '<- print scss file');
     console.log(colors.green('   |- tablet.scss'), '<- tablet breakpoint scss file - breakpoint value configurable in config.json');
     console.log(colors.yellow('|- files [folder]'), '<- other files used in module');
+    console.log(colors.yellow('|- images [folder]'), '<- images folder - configured in imagePath,imagePathOutputDir,imageMinify,imageResizeConfig');
     console.log(colors.yellow('|- html [folder]'), '<- partial html folder');
     console.log(colors.green('   |- _fragment_name.html'), '<- partial html file');
     console.log(colors.yellow('|- js [folder]'), '<- js folder');

@@ -10,6 +10,7 @@
         "cssImageOutputDirRegExp": "this will be turned into a regexp that will replace mathing string to cssImageOutputDir value in output css file",
         "imagePath":               "images folder path",
         "imagePathOutputDir":      "image files output dir",
+        "imageMinify":             "image minification configuration",
         "imageResizeConfig":       "config for image variaties - https://github.com/scalableminds/gulp-image-resize",
         "filesPath":               "path to static files",
         "filesOutputDir":          "static files output dir",
@@ -78,9 +79,15 @@
     "cssImageOutputDirRegExp": "{{file_dest}}",
     "imagePath": [
         "./src/images/*.{png,gif,jpg}",
-        "./src/modules/**/images/*.{png,gif,jpg}"
+        "./src/modules/*/images/*.{png,gif,jpg}"
     ],
     "imagePathOutputDir": "images/",
+    "imageMinify": {
+        "gif": {"interlaced": true},
+        "jpg": {"quality": 75, "progressive": true},
+        "png": {"optimizationLevel": 5},
+        "verbose": false
+    },
     "imageResizeConfig": [
         {
             "variaty": "",
